@@ -14,8 +14,7 @@
 #	Licencia: GPLv3+
 
 
-echo "El Sistema Operativo de Ubuntu o Derivado es el Siguiente: "
-echo  $so
+
 
 
 ubuntu=$(lsb_release -cs)
