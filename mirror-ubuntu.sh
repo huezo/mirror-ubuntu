@@ -23,10 +23,12 @@ ubuntu=$(lsb_release -cs)
 
 echo "script bash para elegir mirror automaticos mas rapidos y cercanos."
 echo "usa el numero de la version de Ubuntu que usas"
+echo "0. Ubuntu x LTS - Automaticamente detecta la version"
 echo "1. Ubuntu 14.04 LTS"
 echo "2. Ubuntu 16.04 LTS"
 echo "3. Ubuntu 18.04 LTS"
-echo "4. Ubuntu x LTS - Automaticamente detecta la version"
+echo "4. Ubuntu 20.04 LTS"
+
 echo ""
 
 
@@ -35,6 +37,29 @@ echo ""
 
 
   case $x in
+  
+
+     0)
+
+
+# Ubuntu x LTS
+
+sudo bash -c "cat >>/etc/apt/sources.list << EOL
+  
+  deb mirror://mirrors.ubuntu.com/mirrors.txt $ubuntu main restricted universe multiverse
+  deb mirror://mirrors.ubuntu.com/mirrors.txt $ubuntu-updates main restricted universe multiverse
+  deb mirror://mirrors.ubuntu.com/mirrors.txt $ubuntu-backports main restricted universe multiverse
+  deb mirror://mirrors.ubuntu.com/mirrors.txt $ubuntu-security main restricted universe multiverse
+   
+EOL"
+
+
+echo "Terminado..."
+
+     ;;  
+  
+  
+  
      1)
 # Ubuntu 14.04 LTS
 
@@ -85,24 +110,34 @@ echo "Terminado..."
      ;;
 
 
-     4)
 
 
-# Ubuntu x LTS
+
+    4)
+
+# Ubuntu 20.04  LTS
 
 sudo bash -c "cat >>/etc/apt/sources.list << EOL
   
-  deb mirror://mirrors.ubuntu.com/mirrors.txt $ubuntu main restricted universe multiverse
-  deb mirror://mirrors.ubuntu.com/mirrors.txt $ubuntu-updates main restricted universe multiverse
-  deb mirror://mirrors.ubuntu.com/mirrors.txt $ubuntu-backports main restricted universe multiverse
-  deb mirror://mirrors.ubuntu.com/mirrors.txt $ubuntu-security main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt focal main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt focal-updates main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt focal-backports main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt focal-security main restricted universe multiverse
    
 EOL"
-
 
 echo "Terminado..."
 
      ;;
+     
+
+
+
+
+
+
+
+
 
 
      *)
