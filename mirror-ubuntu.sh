@@ -28,6 +28,7 @@ echo "1. Ubuntu 14.04 LTS"
 echo "2. Ubuntu 16.04 LTS"
 echo "3. Ubuntu 18.04 LTS"
 echo "4. Ubuntu 20.04 LTS"
+echo "5. Ubuntu 22.04 LTS"
 
 echo ""
 
@@ -46,15 +47,16 @@ echo ""
 
 sudo bash -c "cat >>/etc/apt/sources.list << EOL
   
-  deb mirror://mirrors.ubuntu.com/mirrors.txt $ubuntu main restricted universe multiverse
-  deb mirror://mirrors.ubuntu.com/mirrors.txt $ubuntu-updates main restricted universe multiverse
-  deb mirror://mirrors.ubuntu.com/mirrors.txt $ubuntu-backports main restricted universe multiverse
-  deb mirror://mirrors.ubuntu.com/mirrors.txt $ubuntu-security main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt $ubuntu main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt $ubuntu-updates main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt $ubuntu-backports main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt $ubuntu-security main restricted universe multiverse
    
 EOL"
 
 
 echo "Terminado..."
+echo $ubuntu
 
      ;;  
   
@@ -132,7 +134,22 @@ echo "Terminado..."
      
 
 
+    5)
 
+# Ubuntu 22.04  LTS
+
+sudo bash -c "cat >>/etc/apt/sources.list << EOL
+  
+deb mirror://mirrors.ubuntu.com/mirrors.txt jammy main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt jammy-updates main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt jammy-backports main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt jammy-security main restricted universe multiverse
+   
+EOL"
+
+echo "Terminado..."
+
+     ;;
 
 
 
@@ -153,6 +170,10 @@ echo "Terminado..."
 #	Creador: Huezo
 #	https://huezohuezo1990.wordpress.com/
 #	Licencia: GPLv3+
+
+
+
+
 
 
 
